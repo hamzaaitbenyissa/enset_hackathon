@@ -79,3 +79,22 @@ You can customize the application by:
 - Modifying the HTML template in `templates/index.html`
 - Changing the database configuration in `app.py`
 - Adding additional features to the Flask application
+
+## Deployment
+
+This application can be deployed to Render.com using the following steps:
+
+1. Create a free account on [Render](https://render.com/)
+2. Click "New +" and select "Web Service"
+3. Connect your GitHub repository
+4. Configure the service with these settings:
+   - Name: presentation-feedback (or your preferred name)
+   - Environment: Python 3
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `gunicorn app:app`
+5. Add the following environment variables:
+   - SECRET_KEY: (generate a random string)
+   - DATABASE_URL: (leave empty to use SQLite, or set up a PostgreSQL database)
+6. Click "Create Web Service"
+
+Your application will be deployed and accessible via the URL provided by Render.
